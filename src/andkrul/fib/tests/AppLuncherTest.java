@@ -23,6 +23,13 @@ public class AppLuncherTest {
 		Assert.assertEquals(125,AppLuncher.multiplyDigitsOfNumber(5, 3, "555555555555"));
 		
 	}
+	@Test
+	public  void largestProductOfAdjacentDigitsTest() {
+		Assert.assertEquals(60,AppLuncher.largestProductOfAdjacentDigits(3, "12345"));
+		Assert.assertEquals(120,AppLuncher.largestProductOfAdjacentDigits(5, "12345"));
+		Assert.assertEquals(1,AppLuncher.largestProductOfAdjacentDigits(8, "11111111111"));
+		Assert.assertEquals(8,AppLuncher.largestProductOfAdjacentDigits(3, "222222222222"));
+	}
 	
 
 

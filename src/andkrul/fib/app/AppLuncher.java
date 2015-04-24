@@ -8,9 +8,13 @@ public class AppLuncher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		AppLuncher.multiplyDigitsOfNumber(2, 3, "12251");
+
 	}
 
+	public static long largestProductOfAdjacentDigits(int lenght,String number) {
+		return 0;
+	}
+	
 	public static long checkGreatness(long x, long y) {
 		return x > y ? x : y;
 	}
