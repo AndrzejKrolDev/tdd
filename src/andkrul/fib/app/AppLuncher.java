@@ -8,11 +8,20 @@ public class AppLuncher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		AppLuncher.multiplyDigitsOfNumber(2, 3, "12251");
 	}
 
 	public static long checkGreatness(long x, long y) {
 		return x > y ? x : y;
+	}
+
+	public static long multiplyDigitsOfNumber(int startingPosition,
+			int howMany, String number) {
+		long result = 1;
+		for (int j = startingPosition; j < startingPosition + howMany; j++) {
+			result *= Integer.parseInt(number.substring(j, j + 1));
+		}
+		return result;
 	}
 
 	private static String getNumber() {
