@@ -6,6 +6,7 @@ public class AppLuncher {
 
 	
 	public static void main(String[] args) {
+		System.out.println("Result:");
 		System.out.println(largestProductOfAdjacentDigits(13, getNumber()));
 	}
 
@@ -26,6 +27,7 @@ public class AppLuncher {
 	public static long checkGreatness(long x, long y) {
 		return x > y ? x : y;
 	}
+
 
 	public static long multiplyDigitsOfNumber(int startingPosition,
 			int howMany, String number) {

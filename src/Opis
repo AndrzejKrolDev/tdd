@@ -1,0 +1,84 @@
+1.Do testowania u¿y³em biblioteki Junit, jest ona standardowa bibliotek¹ do testów jednostkowych
+dla jêzyka java. Cechy JUnit: odzielenie testó od kodu, przypadki tesowe, raporty, integracja z 
+ró¿nymi IDE np. Eclipse. U¿ywa³em wersji 4 Junita oraz Javy 1.5, dlatego testy oznaczane s¹ 
+adnotacjami @Test
+
+2. W kodzie kolegi dokana³em kilku zmian, poniewa¿ moim zdaniem jego kod by³ za bardzo zwi¹zany
+z konkretnym zadaniem, postara³em siê stworzyæ kod bardziej uniwersalny i tak:
+	
+	private static long multiplyNumbers(int i, long product) {
+		for (int j = i; j < i + 13; j++) {
+			product *= Integer.parseInt(getNumber().substring(j, j + 1));
+		}
+		return product;
+	}
+zosta³o zamienione na:
+
+	public static long multiplyDigitsOfNumber(int startingPosition,
+			int howMany, String number) {
+		long result = 1;
+		for (int j = startingPosition; j < startingPosition + howMany; j++) {
+			result *= Integer.parseInt(number.substring(j, j + 1));
+		}
+		return result;
+	}
+Dziêki czemu mo¿emy szukaæ dowolnego rozmaru ci¹gu cyfr a nie dok³adnie 13, oraz zmieni³em nazwy
+argumentów na bardziej zrozumia³e.
+	
+natomiast:		
+	private static long followMainLoop() {
+		long largestProduct = 0;
+
+		for (int i = 0; i < getNumber().length() - 13; i++) {
+			long product = 1;
+
+			product = multiplyNumbers(i, product);
+			largestProduct = checkGreatness(largestProduct, product);
+		}
+		return largestProduct;
+	}
+
+zmieni³em na:
+	public static long largestProductOfAdjacentDigits(int lenght, String number) {
+
+		long largestProduct = 0;
+
+		for (int i = 0; i < number.length() - lenght + 1; i++) {
+			long product = 1;
+
+			product = multiplyDigitsOfNumber(i, lenght, number);
+			largestProduct = checkGreatness(largestProduct, product);
+		}
+		return largestProduct;
+	}
+Argumentuje to podobnie jak wy¿ej zwiêkszeniem uniwersalnoœci kodu.
+
+Ostatnia zmiana to:
+	private static long checkGreatness(long largestProduct, long product) {
+		if (product > largestProduct)
+			largestProduct = product;
+		return largestProduct;
+	}
+ na:
+ 	public static long checkGreatness(long x, long y) {
+		return x > y ? x : y;
+	}
+ zmieni³a siê jedynie d³ugoœæ zapisu logika pozosta³a bez zmian.
+ 
+3.Opis metody zgodnie ze standardem JavaDoc opisanym przez Oracle:
+/**
+	 * Returns effect of multiplaction adjacent digits of a number
+	 * @author Andrzej
+	 * @param  startingPosition  index of first of adjacent digits
+	 * @param  howMany number of digits that gets multiplied 
+	 * @return    long that is effect of multiplication howMany digits from startingPosition 
+	 * @e.g  AppLuncher.multiplyDigitsOfNumber(0, 5, "12345") will return 120
+	 */
+	public static long multiplyDigitsOfNumber(int startingPosition,
+			int howMany, String number) {
+		long result = 1;
+		for (int j = startingPosition; j < startingPosition + howMany; j++) {
+			result *= Integer.parseInt(number.substring(j, j + 1));
+		}
+		return result;
+	}
