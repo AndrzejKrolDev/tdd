@@ -12,6 +12,8 @@ public class AppLuncherTest {
 		Assert.assertEquals(50,AppLuncher.checkGreatness(50, 30));
 		Assert.assertEquals(90,AppLuncher.checkGreatness(60, 90));
 		Assert.assertEquals(100,AppLuncher.checkGreatness(50, 100));
+		Assert.assertEquals(100,AppLuncher.checkGreatness(70, 100));
+		
 	}
 
 	
