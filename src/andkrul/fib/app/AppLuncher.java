@@ -11,10 +11,20 @@ public class AppLuncher {
 
 	}
 
-	public static long largestProductOfAdjacentDigits(int lenght,String number) {
-		return 0;
+	public static long largestProductOfAdjacentDigits(int lenght, String number) {
+
+		long largestProduct = 0;
+
+		for (int i = 0; i < number.length() - lenght + 1; i++) {
+			long product = 1;
+
+			product = multiplyDigitsOfNumber(i, lenght, number);
+			largestProduct = checkGreatness(largestProduct, product);
+		}
+		return largestProduct;
+
 	}
-	
+
 	public static long checkGreatness(long x, long y) {
 		return x > y ? x : y;
 	}
