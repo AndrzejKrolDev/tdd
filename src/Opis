@@ -1,10 +1,10 @@
-1.Do testowania u¿y³em biblioteki Junit, jest ona standardowa bibliotek¹ do testów jednostkowych
-dla jêzyka java. Cechy JUnit: odzielenie testó od kodu, przypadki tesowe, raporty, integracja z 
-ró¿nymi IDE np. Eclipse. U¿ywa³em wersji 4 Junita oraz Javy 1.5, dlatego testy oznaczane s¹ 
+1.Do testowania uÅ¼ylem biblioteki Junit, jest ona standardowa biblioteka do testÃ³w jednostkowych
+dla jezyka java. Cechy JUnit: odzielenie testÃ³ od kodu, przypadki tesowe, raporty, integracja z 
+rÃ³Å¼nymi IDE np. Eclipse. UÅ¼ywalem wersji 4 Junita oraz Javy 1.5, dlatego testy oznaczane sa 
 adnotacjami @Test
 
-2. W kodzie kolegi dokana³em kilku zmian, poniewa¿ moim zdaniem jego kod by³ za bardzo zwi¹zany
-z konkretnym zadaniem, postara³em siê stworzyæ kod bardziej uniwersalny i tak:
+2. W kodzie kolegi dokanalem kilku zmian, poniewaÂ¿ moim zdaniem jego kod byl za bardzo zwiazany
+z konkretnym zadaniem, postaralem sie stworzyc kod bardziej uniwersalny i tak:
 	
 	private static long multiplyNumbers(int i, long product) {
 		for (int j = i; j < i + 13; j++) {
@@ -12,7 +12,7 @@ z konkretnym zadaniem, postara³em siê stworzyæ kod bardziej uniwersalny i tak:
 		}
 		return product;
 	}
-zosta³o zamienione na:
+zostalo zamienione na:
 
 	public static long multiplyDigitsOfNumber(int startingPosition,
 			int howMany, String number) {
@@ -22,8 +22,8 @@ zosta³o zamienione na:
 		}
 		return result;
 	}
-Dziêki czemu mo¿emy szukaæ dowolnego rozmaru ci¹gu cyfr a nie dok³adnie 13, oraz zmieni³em nazwy
-argumentów na bardziej zrozumia³e.
+Dzieki czemu mozemy szukac dowolnego rozmaru ciagu cyfr a nie dokladnie 13, oraz zmienilem nazwy
+argumentÃ³w na bardziej zrozumiale.
 	
 natomiast:		
 	private static long followMainLoop() {
@@ -38,7 +38,7 @@ natomiast:
 		return largestProduct;
 	}
 
-zmieni³em na:
+zmienilem na:
 	public static long largestProductOfAdjacentDigits(int lenght, String number) {
 
 		long largestProduct = 0;
@@ -51,7 +51,7 @@ zmieni³em na:
 		}
 		return largestProduct;
 	}
-Argumentuje to podobnie jak wy¿ej zwiêkszeniem uniwersalnoœci kodu.
+Argumentuje to podobnie jak wyÂ¿ej zwiÃªkszeniem uniwersalnoÅ“ci kodu.
 
 Ostatnia zmiana to:
 	private static long checkGreatness(long largestProduct, long product) {
@@ -63,7 +63,7 @@ Ostatnia zmiana to:
  	public static long checkGreatness(long x, long y) {
 		return x > y ? x : y;
 	}
- zmieni³a siê jedynie d³ugoœæ zapisu logika pozosta³a bez zmian.
+ zmienila sie jedynie dlugosc zapisu logika pozostala bez zmian.
  
 3.Opis metody zgodnie ze standardem JavaDoc opisanym przez Oracle:
 /**
